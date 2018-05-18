@@ -21,7 +21,10 @@ spring:
 eureka:
   client:       # 当前微服务只是eureka的客户端
     service-url:
-      defaultZone: http://eureka7000.com:7000/eureka,http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka  # 将当前微服务注册到指定的eureka服务端中
+      # 单机使用
+      defaultZone: http://eureka7000.com:7000/eureka
+      ## eureka集群时使用
+      # defaultZone: http://eureka7000.com:7000/eureka,http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka  # 将当前微服务注册到指定的eureka服务端中
 
   instance:
       instance-id: microservicecloud-provider

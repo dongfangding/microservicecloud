@@ -7,8 +7,8 @@ eureka:
     register-with-eureka: false #是否将当前模块注册到Eureka服务端上，因为当前模块就是Eureka服务端，所以不需要注册
     fetch-registry: false #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
     service-url:
-      # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #一个eureka使用，设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址（单机）。
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #一个eureka使用，设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址（单机）。
       # 配置另外两个eureka的注册地址，多个用逗号，另外的eureka的代码与这个一样，只是当前这个配置文件不一样，用于区分端口号，
             # eureka配置地址，每个eureka服务端的配置文件这个属性都不包含自己，包含另外两个即可。
-      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+      # defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
 
