@@ -2,10 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/microservicecloud-api" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/microservicecloud-consumer" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/microservicecloud-eureka" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/microservicecloud-parent" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/microservicecloud-provider" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/microservicecloud-api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/microservicecloud-consumer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/microservicecloud-parent" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/microservicecloud-provider" vcs="Git" />
   </component>
 </project>
