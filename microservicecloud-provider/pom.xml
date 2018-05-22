@@ -15,7 +15,7 @@
 
 
     <dependencies>
-        <!-- 引入我们自定义的模块 -->
+        <!-- 引入自定义的模块 -->
         <dependency>
             <groupId>com.ddf.microserviecloud</groupId>
             <artifactId>microservicecloud-api</artifactId>
@@ -78,6 +78,7 @@
     </dependencies>
 
     <build>
+        <finalName>microservicecloud-provider</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

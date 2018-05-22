@@ -31,6 +31,7 @@
 
     <!-- 打包插件 -->
     <build>
+        <finalName>microservicecloud-eureka</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
