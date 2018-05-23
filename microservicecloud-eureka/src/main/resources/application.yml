@@ -11,4 +11,3 @@ eureka:
       # 配置另外两个eureka的注册地址，多个用逗号，另外的eureka的代码与这个一样，只是当前这个配置文件不一样，用于区分端口号，
             # eureka配置地址，每个eureka服务端的配置文件这个属性都不包含自己，包含另外两个即可。
       # defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
-
