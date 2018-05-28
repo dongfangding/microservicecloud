@@ -1,0 +1,32 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: microservicecloud-zuul
+eureka:
+  client:
+    service-url:
+      # 单机版
+      defaultZone: http://eureka7000.com:7000/eureka
+      ## eureka集群时使用
+      # defaultZone: http://eureka7000.com:7000/eureka,http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka  # 将当前微服务注册到指定的eureka服务端中
+  instance:
+      instance-id: microservicecloud-zuul
+      prefer-ip-address: true
+
+zuul:
+  # ignored-services: 紧跟微服务名，则指定的微服务名不能再通过微服务名来直接使用，只能使用zuul来跳转
+  prefix: /myzuul # 对所有的访问增加前缀
+  ignored-services: "*" # 使所有的微服务名失去使用资格
+  routes: #定义路由
+    provider:
+      serviceId: microservicecloud-provider
+      path: /provider/**
+      # 这个属性如果不加，则如果路由的微服务有context-path属性的话，那么在路由的时候也要加上context-path属性，
+      # 即需要hostname:5000/zuul/provider/{microservicecloud-provider微服务的context-path},加了这个属性之后则不需要context-path就可
+      stripPrefix: false
+
+info:
+  app-name: microservicecloud-zuul
+  copyright: ddf
+  description: "微服务网关"

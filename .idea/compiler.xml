@@ -10,6 +10,7 @@
         <module name="microservicecloud-consumer" />
         <module name="microservicecloud-eureka" />
         <module name="microservicecloud-provider" />
+        <module name="microservicecloud-zuul" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
@@ -18,6 +19,7 @@
       <module name="microservicecloud-eureka" target="1.8" />
       <module name="microservicecloud-parent" target="1.8" />
       <module name="microservicecloud-provider" target="1.8" />
+      <module name="microservicecloud-zuul" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
