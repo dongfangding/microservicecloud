@@ -50,6 +50,7 @@
     </dependencies>
 
     <build>
+        <finalName>microservicecloud-consumer-feign</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
