@@ -36,8 +36,11 @@ public class UserController {
         return userService.queryOne(id);
     }
 
-    @RequestMapping("maplist")
+    @RequestMapping("/list1")
     public List<Map<String, Object>> userMapList() {
+        System.out.println("1111111111111");
         return userService.queryAllMap();
     }
+
+
 }

@@ -1,8 +1,7 @@
 server:
   port: 8000 # 配置端口号
   context-path: /provider # 配置当前模块的context-path，即每个请求前都必须附加上这个路径
-debug: false
-
+debug: true
 spring:
   application:
     name: microservicecloud-provider   # 在使用eurake功能的时候非常重要，这个就是该服务的实例名，eurake可以通过该实例名获得这个服务的其中一个实例（服务端集群）
@@ -16,7 +15,7 @@ spring:
       min-idle: 5                  # 数据库连接池的最小维持连接数
       initial-size: 5             # 初始化连接数
       max-total: 5                # 最大连接数
-      max-wait-millis: 200       # 等待连接获取的最大超时时间
+      max-wait-millis: 200        # 等待连接获取的最大超时时间
 
 eureka:
   client:       # 当前微服务只是eureka的客户端
