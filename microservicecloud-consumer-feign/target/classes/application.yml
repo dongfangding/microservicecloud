@@ -1,9 +1,9 @@
 server:
-  port: 8001   # 当前微服务的端口号
-  context-path: /consumer #每个请求都必须加上这个路径
+  port: 9005   # 当前微服务的端口号
+  context-path: /feign #每个请求都必须加上这个路径
 eureka:
   client:
-    register-with-eureka: false  #当前模块是服务消费者，只需要调用服务提供者的接口接口，而服务提供者已经注册，所以这里不需要注册到eureka
+    register-with-eureka: true  #当前模块是服务消费者，只需要调用服务提供者的接口接口，而服务提供者已经注册，所以这里不需要注册到eureka
     service-url:
       defaultZone: http://eureka7000.com:7000/eureka
       # eureka集群时使用
