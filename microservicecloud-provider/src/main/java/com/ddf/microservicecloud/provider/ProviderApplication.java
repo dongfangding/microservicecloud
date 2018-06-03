@@ -6,6 +6,7 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @author DDf on 2018/5/14
@@ -15,6 +16,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableEurekaClient
 @EnableCircuitBreaker
 @EnableAsync
+@EnableScheduling
 public class ProviderApplication {
 
     public static void main(String[] args) {
