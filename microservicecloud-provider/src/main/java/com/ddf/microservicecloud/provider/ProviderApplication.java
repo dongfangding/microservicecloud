@@ -15,7 +15,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableCircuitBreaker
-@EnableAsync
 @EnableScheduling
 public class ProviderApplication {
 

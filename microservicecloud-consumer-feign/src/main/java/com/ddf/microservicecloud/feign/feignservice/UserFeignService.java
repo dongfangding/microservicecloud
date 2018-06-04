@@ -1,6 +1,7 @@
 package com.ddf.microservicecloud.feign.feignservice;
 
 import com.ddf.microservicecloud.api.entity.User;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,15 +17,21 @@ import java.util.Map;
 public interface UserFeignService {
 
     /**
+     * 指定把数据缓存到user这个缓存管理器中，key默认为参数
+     * @param id
+     * @return
+     */
+    @Cacheable(value = "{user}")
+    @RequestMapping("/provider/user/user/{id}")
+    User queryOne(@PathVariable("id") Integer id);
+
+    /**
      * 这里的RequestMapping要写成当前FeignService要访问的微服务名中定义的对应接口的访问路径，
      * /provider为MICROSERVICECLOUD-PROVIDER的context-path，暂时未找到在一个地方统一定义
      * @return
      */
     @RequestMapping("/provider/user/list")
     List<User> queryAll();
-
-    @RequestMapping("/provider/user/user/{id}")
-    User queryOne(@PathVariable("id") Integer id);
 
     @RequestMapping("/provider/user/maplist")
     List<Map<String, Object>> queryAllMap();

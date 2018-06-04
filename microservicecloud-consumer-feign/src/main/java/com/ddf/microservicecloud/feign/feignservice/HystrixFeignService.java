@@ -3,6 +3,7 @@ package com.ddf.microservicecloud.feign.feignservice;
 import com.ddf.microservicecloud.api.entity.User;
 import com.ddf.microservicecloud.api.feignservice.HystrixFallFactory;
 import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -22,4 +23,13 @@ public interface HystrixFeignService {
 
     @RequestMapping("/provider/user/list")
     List<User> userList();
+
+
+    /**
+     * 这里的@PathVariable一定要写value，否则会报错
+     * @param id
+     * @return
+     */
+    @RequestMapping("provider/hystrix/queryOne/{id}")
+    User queryOne(@PathVariable(value = "id") Integer id);
 }

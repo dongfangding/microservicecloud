@@ -86,6 +86,12 @@
             <artifactId>spring-cloud-starter-hystrix</artifactId>
         </dependency>
 
+        <!-- 引入对缓存的支持 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>microservicecloud-provider</finalName>

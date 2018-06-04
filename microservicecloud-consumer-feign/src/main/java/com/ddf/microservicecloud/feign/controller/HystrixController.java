@@ -3,6 +3,7 @@ package com.ddf.microservicecloud.feign.controller;
 import com.ddf.microservicecloud.api.entity.User;
 import com.ddf.microservicecloud.feign.feignservice.HystrixFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,5 +27,11 @@ public class HystrixController {
     @RequestMapping("/userList")
     public List<User> userList() {
         return hystrixFeignService.userList();
+    }
+
+    @RequestMapping("/queryOne/{id}")
+    public User queryOne(@PathVariable Integer id) {
+        System.out.println("queryOne.................");
+        return hystrixFeignService.queryOne(id);
     }
 }

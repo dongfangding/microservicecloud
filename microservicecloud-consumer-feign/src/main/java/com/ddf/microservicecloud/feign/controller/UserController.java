@@ -6,6 +6,8 @@ import com.ddf.microservicecloud.feign.feignservice.UserFeignService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,10 +28,6 @@ public class UserController {
     @Autowired
     private UserClientService userClientService;
 
-    /**
-     * 调用微服务提供者的查询用户列表的接口
-     * @return
-     */
     @RequestMapping("/list1")
     public List<User> userList1() {
         return userClientService.queryAll();
@@ -40,17 +38,8 @@ public class UserController {
         return userFeignService.queryAll();
     }
 
-    /**
-     * 调用微服务提供者的查询用户列表的接口
-     * @return
-     */
     @RequestMapping("/user/{id}")
     public User userList(@PathVariable("id") Integer id) {
         return userFeignService.queryOne(id);
-    }
-
-    @Scheduled(cron = "0/10 * * * * *")
-    public void scheduleDemo() {
-        log.info("scheduleDemo1...........{}", LocalDateTime.now());
     }
 }
