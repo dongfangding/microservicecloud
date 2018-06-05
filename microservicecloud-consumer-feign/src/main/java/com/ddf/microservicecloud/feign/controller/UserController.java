@@ -42,4 +42,15 @@ public class UserController {
     public User userList(@PathVariable("id") Integer id) {
         return userFeignService.queryOne(id);
     }
+
+    @RequestMapping("update")
+    public User updateOne(User user) {
+        System.out.println(user.toString());
+        return userFeignService.updateOne(user);
+    }
+
+    @RequestMapping("/delete/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        userFeignService.delete(id);
+    }
 }

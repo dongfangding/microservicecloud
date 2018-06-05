@@ -16,4 +16,8 @@ public interface UserService {
     User queryOne(Integer id);
 
     List<Map<String, Object>> queryAllMap();
+
+    User updateOne(User user);
+
+    void delete(Integer id);
 }

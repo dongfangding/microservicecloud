@@ -16,12 +16,6 @@ import java.util.Map;
 @FeignClient(value="MICROSERVICECLOUD-PROVIDER")
 public interface UserFeignService {
 
-    /**
-     * 指定把数据缓存到user这个缓存管理器中，key默认为参数
-     * @param id
-     * @return
-     */
-    @Cacheable(value = "{user}")
     @RequestMapping("/provider/user/user/{id}")
     User queryOne(@PathVariable("id") Integer id);
 
@@ -35,4 +29,10 @@ public interface UserFeignService {
 
     @RequestMapping("/provider/user/maplist")
     List<Map<String, Object>> queryAllMap();
+
+    @RequestMapping("/provider/user/update")
+    User updateOne(User user);
+
+    @RequestMapping("/provider/user/delete/{id}")
+    void delete(@PathVariable("id") Integer id);
 }

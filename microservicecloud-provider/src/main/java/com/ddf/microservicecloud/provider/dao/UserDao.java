@@ -16,4 +16,7 @@ public interface UserDao {
 
     List<Map<String, Object>> findAllMap();
 
+    User updateOne(User user);
+
+    void delete(Integer id);
 }

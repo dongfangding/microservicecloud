@@ -16,7 +16,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * @EnableFeignClients 启动Feign相关功能
  * @EnableScheduling 启动对定时任务的支持
  * @EnableAsync 开启对异步调用的支持
- * @EnableCaching 开启对缓存的支持
  */
 @SpringBootApplication
 @EnableEurekaClient
@@ -24,7 +23,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @ComponentScan("com.ddf.microservicecloud")
 @EnableScheduling
 @EnableAsync
-@EnableCaching
 public class FeignApplication {
     public static void main(String[] args) {
         SpringApplication.run(FeignApplication.class, args);

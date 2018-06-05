@@ -4,6 +4,7 @@ import com.ddf.microservicecloud.api.entity.User;
 import com.ddf.microservicecloud.provider.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,4 +43,13 @@ public class UserController {
     }
 
 
+    @RequestMapping("/update")
+    public User user(@RequestBody User user) {
+        return userService.updateOne(user);
+    }
+
+    @RequestMapping("/delete/{id}")
+    public void delete(@PathVariable Integer id) {
+        userService.delete(id);
+    }
 }
