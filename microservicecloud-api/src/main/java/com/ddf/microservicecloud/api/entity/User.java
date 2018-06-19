@@ -2,13 +2,14 @@ package com.ddf.microservicecloud.api.entity;
 
 import org.springframework.jdbc.core.RowMapper;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
  * @author DDf on 2018/5/14
  */
-public class User implements RowMapper {
+public class User implements RowMapper, Serializable {
     private Integer id;
     private String userName;
     private String password;

@@ -2,13 +2,16 @@ package com.ddf.microservicecloud.provider.dao.impl;
 
 import com.ddf.microservicecloud.api.entity.User;
 import com.ddf.microservicecloud.provider.dao.UserDao;
+import com.ddf.microservicecloud.provider.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -23,16 +26,30 @@ public class UserDaoImpl implements UserDao {
     private Logger log = LoggerFactory.getLogger(UserDaoImpl.class);
     @Autowired
     private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private RedisTemplate redisTemplate;
 
 
     /**
-     * 查询所有的用户
+     * 查询所有的用户（使用redis存取所有用户列表）
      * @return
      */
     @Override
     public List<User> findAll() {
+        List<User> userList = syncUserList();
+        return userList;
+    }
+
+    public List<User> syncUserList() {
         String sql = "SELECT * FROM USER WHERE REMOVED = 0";
-        return jdbcTemplate.query(sql, new User());
+        List<User> userList = jdbcTemplate.query(sql, new User());
+        try {
+            redisTemplate.opsForHash().put("user", "users", userList);
+        } catch (Exception e) {
+            // 如果存入（更新）失败，那么采取清空缓存的方法，保证垃圾数据不会被使用
+            redisTemplate.opsForHash().put("user", "users", null);
+        }
+        return userList;
     }
 
     /**
@@ -73,6 +90,7 @@ public class UserDaoImpl implements UserDao {
         if (update < 1) {
             throw new RuntimeException("用户更新失败");
         }
+        syncUserList();
         return getOne(user.getId());
     }
 
@@ -88,5 +106,6 @@ public class UserDaoImpl implements UserDao {
         if (update < 1) {
             throw new RuntimeException("用户删除失败");
         }
+        syncUserList();
     }
 }

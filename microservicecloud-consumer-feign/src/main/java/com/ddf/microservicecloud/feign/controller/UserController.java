@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,8 @@ public class UserController {
     private UserFeignService userFeignService;
     @Autowired
     private UserClientService userClientService;
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @RequestMapping("/list1")
     public List<User> userList1() {
@@ -35,7 +38,21 @@ public class UserController {
 
     @RequestMapping("/list")
     public List<User> userList() {
-        return userFeignService.queryAll();
+        try {
+            List<User> userList = (List<User>) redisTemplate.opsForHash().get("user", "users");
+            log.info("从redis中获取数据。。。。。");
+            log.info("获得数据： {}", userList);
+            if (userList == null || userList.isEmpty()) {
+                // 为保险起见，如果数据为空，发送http请求来获得一次最新的数据
+                log.info("从redis中获得数据为空，尝试发送请求获取数据。。。。");
+                return userFeignService.queryAll();
+            }
+            return userList;
+        } catch (Exception e) {
+            // 如果从redis中获取失败，那么再尝试发送Http请求获取数据
+            log.info("从redis中获得数据失败，尝试发送请求获取数据。。。。");
+            return userFeignService.queryAll();
+        }
     }
 
     @RequestMapping("/user/{id}")
