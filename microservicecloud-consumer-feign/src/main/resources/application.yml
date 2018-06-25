@@ -23,3 +23,9 @@ spring:
       max-active: 50
       min-idle: 1
       max-idle: 20
+
+
+  elasticsearch:
+    jest:      # Jest是用来与elasticsearch交互的工具
+      uris:
+        - http://localhost:9200
