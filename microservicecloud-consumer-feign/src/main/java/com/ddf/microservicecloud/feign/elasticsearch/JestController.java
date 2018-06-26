@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 /**
  * @author DDf on 2018/6/25
  */
@@ -14,12 +16,17 @@ public class JestController {
     private JestService jestService;
 
     @RequestMapping("/indexAllUser")
-    public void indexAllUser() {
+    public void indexAllUser() throws IOException {
         jestService.indexAllUser();
     }
 
-    @RequestMapping("/getUserNamef")
-    public String getUserNamef() {
-        return jestService.searchDemo1();
+    @RequestMapping("/createIndexMapping")
+    public void createIndexMapping() throws IOException {
+        jestService.createIndexMapping();
+    }
+
+    @RequestMapping("/queryMatch")
+    public String queryMatch() {
+        return jestService.queryMatch();
     }
 }
