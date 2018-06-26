@@ -66,6 +66,13 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
+        <!-- 引入对Jest的支持，Jest是用来操作Elasticsearch的工具 -->
+        <dependency>
+            <groupId>io.searchbox</groupId>
+            <artifactId>jest</artifactId>
+            <version>5.3.3</version>
+        </dependency>
+
     </dependencies>
 
     <build>
