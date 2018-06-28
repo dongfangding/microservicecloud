@@ -2,6 +2,8 @@
   <component name="FileTypeManager" version="17">
     <extensionMap>
       <mapping ext="pdm" type="Native" />
+      <mapping ext="sql" type="PLAIN_TEXT" />
+      <removed_mapping ext="sql" type="SQL" />
     </extensionMap>
   </component>
 </application>
