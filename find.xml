@@ -1,11 +1,11 @@
 <application>
   <component name="FindSettings">
     <option name="caseSensitive" value="true" />
-    <option name="customScope" value="All Places" />
-    <option name="defaultScopeName" value="All Places" />
+    <option name="customScope" value="Directory 'D:\workspaces\02.code\02.Data_Service\04.HDGenServer\src\main\java\com\sinotrans\hd\gen [hd-gen-server]'" />
+    <option name="defaultScopeName" value="Directory 'D:\workspaces\02.code\02.Data_Service\04.HDGenServer\src\main\java\com\sinotrans\hd\gen [hd-gen-server]'" />
     <option name="wholeWordsOnly" value="true" />
     <option name="CASE_SENSITIVE_SEARCH" value="true" />
     <option name="WHOLE_WORDS_ONLY" value="true" />
-    <option name="SEARCH_SCOPE" value="All Places" />
+    <option name="SEARCH_SCOPE" value="Directory 'D:\workspaces\02.code\02.Data_Service\04.HDGenServer\src\main\java\com\sinotrans\hd\gen [hd-gen-server]'" />
   </component>
 </application>
