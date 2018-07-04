@@ -1,8 +1,7 @@
 package com.ddf.microservicecloud.feign.feignservice;
 
 import com.ddf.microservicecloud.api.entity.User;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
