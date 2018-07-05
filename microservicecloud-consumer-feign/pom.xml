@@ -23,7 +23,7 @@
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-feign</artifactId>
+            <artifactId>pring-cloud-starter-openfeign</artifactId>
         </dependency>
 
         <dependency>
@@ -34,7 +34,7 @@
         <!-- 引入Eureka -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
         <!-- 修改后立即生效，热部署 -->

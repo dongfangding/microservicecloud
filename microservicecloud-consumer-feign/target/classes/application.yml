@@ -3,8 +3,29 @@ server:
   context-path: /feign #每个请求都必须加上这个路径
 eureka:
   client:
-    register-with-eureka: true  #当前模块是服务消费者，只需要调用服务提供者的接口接口，而服务提供者已经注册，所以这里不需要注册到eureka
+    register-with-eureka: false  #当前模块是服务消费者，只需要调用服务提供者的接口接口，而服务提供者已经注册，所以这里不需要注册到eureka
     service-url:
       defaultZone: http://eureka7000.com:7000/eureka
-      # eureka集群时使用
-      # defaultZone: http://eureka7000.com:7000/eureka,http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+     # eureka集群时使用
+     # defaultZone: http://eureka7000.com:7000/eureka,http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+spring:
+  mail:
+    username: 1041765757@qq.com                # 用来验证授权的邮件用户名
+    password: gotartrfwuytbcji                # 根据QQ邮箱设置-账户里生成的第三方登陆授权码，可用来代替密码登陆
+    host: smtp.qq.com                         # 邮件服务器类型
+    properties.mail.smtp.ssl.enable: true # 用以支持授权码登陆
+
+  redis:
+    host: 192.168.1.6 # redis主机
+    database: 0 # 默认操作哪个数据库
+    port: 6379 # 端口号
+    pool:
+      max-active: 50
+      min-idle: 1
+      max-idle: 20
+
+
+  elasticsearch:
+    jest:      # Jest是用来与elasticsearch交互的工具
+      uris:
+        - http://localhost:9200
