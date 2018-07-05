@@ -41,6 +41,12 @@ info:
   app-name: microservicecloud-provider
   copyright: ddf
   description: "微服务提供者"
-logging:
-  level: debug
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

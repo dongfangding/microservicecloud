@@ -8,3 +8,12 @@ eureka:
       defaultZone: http://eureka7000.com:7000/eureka
       # eureka集群时使用
       # defaultZone: http://eureka7000.com:7000/eureka,http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
