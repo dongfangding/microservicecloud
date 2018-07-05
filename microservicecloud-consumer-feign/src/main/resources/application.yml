@@ -29,3 +29,13 @@ spring:
     jest:      # Jest是用来与elasticsearch交互的工具
       uris:
         - http://localhost:9200
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

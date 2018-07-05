@@ -1,2 +1,46 @@
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      # 这一块需要注意看，这个和注册到eureka上的写法不同，加了个环境变量
+      defaultZone: ${EUREKA_SERVICE_URL:http://eureka7000.com:7000}/eureka/
+
+# 这一块的配置是为了暴露监控端点，详细请参考官方
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  
+  endpoint:
+    health:
+      show-details: ALWAYS
 server:
   port: 9009
+
+spring:
+  application:
+    name: ADMIN-SERVER
+  profiles:
+    active: insecure
+
+
+---
+spring:
+  profiles: insecure
+
+---
+spring:
+  profiles: secure
+  security:
+    user:
+      name: "ddf"
+      password: "123456"
+eureka:
+  instance:
+    metadata-map:
+      user.name: "ddf"         #These two are needed so that the server
+      user.password: "123456" #can access the protected client endpoints
