@@ -8,6 +8,13 @@ eureka:
       defaultZone: http://eureka7000.com:7000/eureka
      # eureka集群时使用
      # defaultZone: http://eureka7000.com:7000/eureka,http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+
+
+ribbon:
+  ReadTimeout: 20000 # 如果使用feign，默认超时时间为1000ms，很容易就超时
+  ConnectTimeout: 5000 # 如果使用feign，默认超时时间为1000ms，很容易就超时
+
+
 spring:
   mail:
     username: 1041765757@qq.com                # 用来验证授权的邮件用户名
