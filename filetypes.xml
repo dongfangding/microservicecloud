@@ -13,6 +13,7 @@
       <mapping ext="vw" type="DBN-SQL" />
       <mapping ext="xmind" type="Native" />
       <mapping ext="pdm" type="Native" />
+      <mapping pattern="META-INF/services/" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
 </application>
